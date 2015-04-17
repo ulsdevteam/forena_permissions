@@ -4,3 +4,4 @@ core = 7.x
 dependencies[] = forena
 stylesheets[all][] = forena_query.css
 package = Forena
+version = "7.x-1.0"
