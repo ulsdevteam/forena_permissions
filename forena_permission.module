@@ -9,11 +9,12 @@
  * Implementation of hook_permission
  */
 function forena_permission_permission() {
+  module_load_include('inc', 'forena', 'forena.common');
   $perms = array();
-  $result = db_query('SELECT distinct category FROM {forena_reports}');
-  foreach ($result as $row) {
-    $perms['forena category ' . htmlspecialchars($row->category)] = array('title' => t('View Forena Reports of ') . '<i>' . htmlspecialchars($row->category) . '</i>',
-    	'description' => t('In your SQL block, use') . ' "--ACCESS=forena category ' . htmlspecialchars($row->category) . '"');
+  $result = forena_get_user_reports('');
+  foreach ($result as $category => $reports) {
+    $perms['forena category ' . htmlspecialchars($category)] = array('title' => t('View Forena Reports of ') . '<i>' . htmlspecialchars($category) . '</i>',
+        'description' => t('In your SQL block, use') . ' "--ACCESS=forena category ' . htmlspecialchars($category) . '"');
   }
   return $perms;
 }

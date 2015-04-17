@@ -2,6 +2,5 @@ name = Forena Category Permissions
 description = Set permissions based on Forena categories.
 core = 7.x
 dependencies[] = forena
-stylesheets[all][] = forena_query.css
 package = Forena
-version = "7.x-1.0"
+version = "7.x-1.1"
